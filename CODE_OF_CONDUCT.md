@@ -1,4 +1,4 @@
-# American Museum of Natural History - Hack the Deep Code of Conduct
+# American Museum of Natural History - Hack the Solar System Code of Conduct
 
 ## 0. Following the Rules
 
