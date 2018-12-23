@@ -10,7 +10,7 @@ A primary goal of Hack The Solar System is to be inclusive to the largest number
 
 This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
 
-We invite all those who participate in Hack The Deep to help us create safe and positive experiences for everyone.
+We invite all those who participate in Hack The Solar System to help us create safe and positive experiences for everyone.
 
 ## 2. Open Source Citizenship and Participants' Creations
 
@@ -22,7 +22,7 @@ A supplemental goal of this Code of Conduct is to increase open source citizensh
 
 ## 3. Filming and Photography
 
-Hack the Solar System may be filmed or photographed by the Museum for its non-profit educational and fundraising purposes including for promoting Museum events and Public Programs, in any form of media, anywhere. In addition, invited members of the press may be present at the event and may also film or photograph the event and the participants. By participating in Hack the Deep, you agree to be filmed or photographed for these purposes, as also indicated on the accompanying release forms.
+Hack the Solar System may be filmed or photographed by the Museum for its non-profit educational and fundraising purposes including for promoting Museum events and Public Programs, in any form of media, anywhere. In addition, invited members of the press may be present at the event and may also film or photograph the event and the participants. By participating in Hack the Solar System, you agree to be filmed or photographed for these purposes, as also indicated on the accompanying release forms.
 
 ## 4. No Promotion
 
