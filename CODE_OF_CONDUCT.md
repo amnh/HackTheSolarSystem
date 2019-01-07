@@ -94,8 +94,8 @@ This code of conduct and its related procedures also applies to unacceptable beh
 
 ## 14. Contact info
 
-BridgeUP: STEM - bridgeuphackathon@amnh.org
-Corporate Relations - gastrove@amnh.org
+* BridgeUP: STEM - bridgeuphackathon@amnh.org
+* Corporate Relations - gastrove@amnh.org
 
 ## 15. License and attribution
 
