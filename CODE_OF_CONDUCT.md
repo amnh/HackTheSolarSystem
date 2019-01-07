@@ -12,7 +12,13 @@ This code of conduct outlines our expectations for all those who participate in 
 
 We invite all those who participate in Hack The Solar System to help us create safe and positive experiences for everyone.
 
-## 2. Open Source Citizenship and Participants' Creations
+## 2. Application Process and Corporate Member Participation
+
+All applications for Hack The Solar System will be reviewed and individual participants from the general public will be selected based upon the information submitted through their application form. Official corporate teams representing corporate members are chosen via their own selection processes.
+
+People who work for invited corporate members and are not officially part of invited corporate member teams may apply as individual participants from the general public, but are not guaranteed entry. Employees of corporate members must check with their own corporate liaison to determine what other rules or restrictions from their employer they must follow with regard to the hackathon. Any questions or comments regarding AMNH Corporate Relations may be directed to Grace Astrove, gastrove@amnh.org.
+
+## 3. Open Source Citizenship and Participants' Creations
 
 The mission of Hack the Solar System is to showcase the role computer science plays in scientific research and to develop open-source tools and apps for the advancement of science. The projects created by Hack the Solar System participants will use publicly-available Museum datasets and other open-source resources. Participants agree to publish all works created at Hack the Solar System in publicly-available databases or websites and to permit others to access and use these works on a royalty-free, open source, non-commercial basis. If you wish to make commercially-viable solutions, please consider attending another event. Participants additionally agree not to disrupt other participants' work at Hack the Solar System, or use content being created by other participants without express consent.
 
@@ -20,23 +26,23 @@ You agree that any original work you create is freely available without restrict
 
 A supplemental goal of this Code of Conduct is to increase open source citizenship by encouraging participants to recognize and strengthen the relationships between our actions and their effects on our community. Communities mirror the societies in which they exist and positive action is essential to counteract the many forms of inequality and abuses of power that exist in society. If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, we want to know.
 
-## 3. Filming and Photography
+## 4. Filming and Photography
 
 Hack the Solar System may be filmed or photographed by the Museum for its non-profit educational and fundraising purposes including for promoting Museum events and Public Programs, in any form of media, anywhere. In addition, invited members of the press may be present at the event and may also film or photograph the event and the participants. By participating in Hack the Solar System, you agree to be filmed or photographed for these purposes, as also indicated on the accompanying release forms.
 
-## 4. No Promotion
+## 5. No Promotion
 
 Hack the Solar System is a creative and educational event, and is not a forum for business development or promotion. Participants may not engage in promotion of themselves or their businesses, including networking unrelated to Hack the Solar System challenges, distributing printed materials or branded merchandise of any kind without the knowledge or consent of organizers, pitching a business or idea that is unrelated to Hack the Solar System challenges, or any form of transactional or sales activity, whether or not money is involved.
 
-## 5. No Alcohol, Etc
+## 6. No Alcohol, Etc
 
 No alcohol or other controlled or illegal substances of any kind will be allowed at Hack the Solar System (excluding alcohol served as part of the event or medications taken at the direction of a physician). Possession of any such substances will result in immediate expulsion from Hack the Solar System, and any participant who appears to be intoxicated or under the influence of any such substance will be asked to leave the event immediately for the health and safety of all participants.
 
-## 6. Only participants who are 18+ will spend the night at the museum
+## 7. Only participants who are 18+ will spend the night at the museum
 
 Applications for participants under 18 are limited to the BridgeUP: STEM Brown Scholars and invited student participants who will be supervised and chaperoned by their teachers. No other minors will be permitted at this event. All minors will be asked to leave by 9:30 p.m. on Saturday night and can return at 7:00 a.m. Sunday morning.
 
-## 7. Expected Behavior
+## 8. Expected Behavior
 
 The following behaviors are expected and requested of all community members:
 
@@ -48,7 +54,7 @@ The following behaviors are expected and requested of all community members:
 *   Remember that community event venues may be shared with members of the public; please be respectful to all patrons of these locations.
 *   Comply with all requests to protect unpublished data and remove it from your systems when asked.
 
-## 8. Unacceptable Behavior
+## 9. Unacceptable Behavior
 
 The following behaviors are considered harassment and are unacceptable within our community:
 
@@ -64,39 +70,40 @@ The following behaviors are considered harassment and are unacceptable within ou
 *   Sustained disruption of any activities during the event, including tours, social functions, and presentations.
 *   Advocating for, or encouraging, any of the above behavior.
 
-## 9. Consequences of Unacceptable Behavior
+## 10. Consequences of Unacceptable Behavior
 
 Unacceptable behavior from any community member, including all participants and organizers and those with decision-making authority, will not be tolerated. Anyone asked to stop unacceptable behavior is expected to comply immediately and to not repeat their behavior.
 
 If a community member engages in unacceptable behavior, the organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning and notifying security to take additional measures, at the Museum's sole discretion.
 
-## 10. Reporting Guidelines
+## 11. Reporting Guidelines
 
 If you are subject to or witness unacceptable behavior, or have any other concerns, please notify an event organizer as soon as possible in person, via Slack, or in email at bridgeuphackathon@amnh.org and organizers will promptly address it.
 
 Additionally, organizers are available to help community members engage with security or to otherwise help those experiencing unacceptable behavior feel safe. Organizers will also provide escorts as desired by the person experiencing distress.
 
-## 11. Addressing Grievances
+## 12. Addressing Grievances
 
 If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify the directors of AMNH BridgeUP: STEM with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
 
-## 12. Scope
+## 13. Scope
 
 We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues – online and in-person – as well as in all one-on-one communications pertaining to the community and the event.
 
 This code of conduct and its related procedures also applies to unacceptable behavior occurring outside the scope of community activities when such behavior has the potential to adversely affect the safety and well-being of community members.
 
-## 13. Contact info
+## 14. Contact info
 
-bridgeuphackathon@amnh.org
+BridgeUP: STEM - bridgeuphackathon@amnh.org
+Corporate Relations - gastrove@amnh.org
 
-## 14. License and attribution
+## 15. License and attribution
 
 This Code of Conduct is distributed under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/).
 
 Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 
-Modified on December 22, 2018. Retrieved on November 22, 2016 from [http://citizencodeofconduct.org/](http://citizencodeofconduct.org/)
+Modified on January 7, 2019. Retrieved on November 22, 2016 from [http://citizencodeofconduct.org/](http://citizencodeofconduct.org/)
 
 Please sign and date below to indicate your acceptance of this Code of Conduct.
 
