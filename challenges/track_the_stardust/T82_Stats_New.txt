@@ -1,0 +1,1 @@
+slices, area, volume, radius, xCom, yCom, semimajor, semiminor 

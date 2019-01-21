@@ -1,0 +1,151 @@
+pro IDL_track_total
+; M.Greenberg
+; Requires getting the right threshold values from ImageJ.
+; Rev. A10
+; 10/3/2008
+; TO DO:
+;    auto save to .tif
+
+
+;inputted resolution of outlines
+slices = 3
+xres = 500
+yres = 500
+;below is y location of entry point and terminal point --> X coordinate
+entry = 490
+terminal = 10
+
+;Outlined File Name goes below
+arr = readtiffstack('C:\Documents and Settings\debel\Desktop\Sizes\Sizes_00.tif')
+
+;variables used in code !!Do Not Modify!!
+tot =0L
+xtot = 0LL
+ytot = 0LL
+grandTot = 0L
+x_com = 0.0
+y_com = 0.0
+del_x = 0.0
+del_y = 0.0
+totArr = intarr(xres)
+gTotArr = fltarr(xres+1)
+xTotArr = fltarr(xres)
+yTotArr = fltarr(xres)
+xSkewArr = fltarr(xres)
+ySkewArr = fltarr(xres)
+SkewArr = fltarr(xres)
+Index = indgen(xres)
+zero = intarr(xres)
+
+; ~0.0242 cubic microns/voxel element
+
+; 3 For loops: loops over row N on all slices and sums to cross sectional
+; area for that slice. Adds that to a grand total of voxel elements
+; It clears tot each time through so it is reused.
+for i=0, xres-1 DO BEGIN
+	for j=0, slices-1 DO BEGIN
+		for k=0, yres-1 DO BEGIN
+			if (arr[k,i,j] gt 200) THEN BEGIN
+				tot=tot+1
+				ytot=ytot+long(k)
+				xtot=xtot+long(j)
+			ENDIF
+		ENDFOR
+	ENDFOR
+	if (tot gt 0) THEN BEGIN
+		x_com=float(xtot)/float(tot)
+		y_com=float(ytot)/float(tot)
+		grandTot = long(grandTot)+long(tot)
+		totArr[i] = tot
+		;gTotArr[i] = grandTot
+		xTotArr[i] = x_com
+		yTotArr[i] = y_com
+	ENDIF
+	tot = 0
+	x_com = 0
+	y_com = 0
+	xtot = 0
+	ytot = 0
+	del_x = 0
+	del_y = 0
+	;IF (i MOD 100 eq 0) THEN print, i
+ENDFOR
+
+;Create skewness data
+;Prints some debug info first
+;Draws a line in 3 space then takes difference from calculated com
+;puts that into new array
+print, xTotArr[entry], yTotArr[entry]
+print, xTotArr[terminal], yTotArr[terminal]
+FOR n=0, xres-1 DO BEGIN
+	IF (xTotArr[n] ne 0) OR (yTotArr[n] ne 0 OR n eq entry OR n eq terminal) THEN BEGIN
+		xSkewArr[n] = 2.22*(xTotArr[n] - ((((xTotArr[terminal]-xTotArr[entry])*(n-entry))/(terminal-entry))+xTotArr[entry]))
+		ySkewArr[n] = yTotArr[n] - ((((yTotArr[terminal]-yTotArr[entry])*(n-entry))/(terminal-entry))+yTotArr[entry])
+		SkewArr[n] = SQRT((xSkewArr[n])^2 + (ySkewArr[n])^2)
+	ENDIF
+ENDFOR
+
+
+
+;Create sum for grand total of volume elements
+;Must work from entry point to terminal.
+gTotArr[xres] = 0
+FOR m=xres-1, 0, -1 DO BEGIN
+	gTotArr[m] = gTotArr[m+1]+totArr[m]
+ENDFOR
+
+;Prints grand total of voxels
+print, grandTot
+
+;Plot Initialization
+WINDOW, XSIZE = 1000, YSIZE = 1800 ;resolution
+!P.MULTI = [0, 1, 4, 0, 0]  ;1 window, 4 plot areas
+!P.THICK = 2
+!P.CHARTHICK = 1
+!P.CHARSIZE = 4
+!P.COLOR = 0
+!P.BACKGROUND = 16777214
+
+;Plots Cross Section
+; Need to Figure out a way to do radius if not circular
+; major and minor axes and eccentricity
+PLOT, Index, totArr, $
+;XRANGE = [0.0,xres], $
+XRANGE = [terminal,entry], $
+TITLE='Cross Sectional Area and Cumulative Volume vs. Track Distance', $
+XTITLE='Track Distance (px)', $
+YTITLE='Cross Sectional Area and Cumulative Volume (px^2)'
+OPLOT, Index, gTotArr, $ ;dotted line
+
+;Plots Cumulative Vol.
+PLOT, Index, gTotArr, $
+;XRANGE = [0.0,xres], $
+XRANGE = [terminal, entry], $
+TITLE='Cumulative Volume vs. Track Distance', $
+XTITLE='Track Distance (px)', $
+YTITLE='Cumulative Volume (px^3)'
+
+;Plots Skewness of track
+PLOT, Index, ySkewArr, LINESTYLE = 2, $ ;dotted line
+;XRANGE = [500,7000], $
+XRANGE = [terminal,entry], $
+XTHICK =2, $
+YTHICK = 2, $
+TITLE='Skewness vs. Track Distance', $
+XTITLE='Track Distance (px)', $
+YTITLE='Skewness From Direct Path (px)'
+OPLOT, Index, xSkewArr, LINESTYLE = 0 ;overplot -- solid line
+OPLOT, Index, zero, LINESTYLE = 3 ;zero line (dot dash)
+
+;Plots Total Skewness.
+PLOT, Index, SkewArr, $
+;XRANGE = [0.0,xres], $
+XRANGE = [terminal,entry], $
+TITLE='Skewness vs. Track Distance', $
+XTITLE='Track Distance (px)', $
+YTITLE='Skewness From Direct Path (px)', $
+XTHICK =2, $
+YTHICK = 2
+
+END
+

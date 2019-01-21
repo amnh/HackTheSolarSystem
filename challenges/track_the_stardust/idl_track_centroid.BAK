@@ -1,0 +1,86 @@
+pro IDL_track_centroid
+; M.Greenberg Adapted from:
+; D.S.Ebel
+; Requires getting the right threshold values from ImageJ.
+; TO DO: Modify for 16-bit tiff stacks.
+; Modify to input the volume file directly
+
+;inputted Conditions
+slices = 101
+xres = 2046
+yres = 439
+arr = readtiffstack('D:\MGreenberg\Track 82\T82_outlines_Final.tif')
+
+;variables used in code
+tot =0L
+xtot = 0LL
+ytot = 0LL
+grandTot = 0L
+x_com = 0.0
+y_com = 0.0
+del_x = 0.0
+del_y = 0.0
+totArr = intarr(xres)
+xTotArr = fltarr(xres)
+yTotArr = fltarr(xres)
+Index = indgen(xres)
+zero = intarr(xres)
+
+; 0.0242 cubic microns/voxel element
+
+; 3 For loops: loops over row N on all slices and sums to cross sectional
+; area for that slice. Adds that to a grand total of voxel elements
+; It clears tot each time through so it is reused.
+for i=0, xres-1 DO BEGIN
+	for j=0, slices-1 DO BEGIN
+		for k=0, yres-1 DO BEGIN
+			if (arr[k,i,j] gt 200) THEN BEGIN
+				tot=tot+1
+				ytot=ytot+long(k)
+				xtot=xtot+long(j)
+				;if i eq 1931 then print, tot, xtot, ytot, k, i, j
+			ENDIF
+		ENDFOR
+	ENDFOR
+	if (tot gt 0) THEN BEGIN
+		x_com=float(xtot)/float(tot)
+		y_com=float(ytot)/float(tot)
+		del_x = x_com - (((-80.0*float(i))+192230.0)/1888.0)
+		del_y = y_com - (((31.5*float(i))+332790.0)/1888.0)
+		grandTot = grandTot+tot
+		totArr[i] = tot
+		xTotArr[i] = del_x
+		yTotArr[i] = del_y
+	ENDIF
+	tot = 0
+	x_com = 0
+	y_com = 0
+	xtot = 0
+	ytot = 0
+	del_x = 0
+	del_y = 0
+ENDFOR
+
+print, grandTot		;Prints grand total of voxels
+
+WINDOW, XSIZE = 2000, YSIZE = 600
+
+!P.THICK = 2.5
+
+;Plots profile of track
+PLOT, Index, yTotArr, $
+XRANGE = [0.0,1900.0], $
+XTHICK =2, $
+YTHICK = 2, $
+CHARTHICK = 1.5, $
+LINESTYLE = 1, $
+CHARSIZE = 2, $
+COLOR = 0, $
+BACKGROUND = 16777214
+
+OPLOT, Index, xTotArr, LINESTYLE = 0, COLOR = 0
+OPLOT, Index, zero, LINESTYLE = 3, COLOR = 0
+
+
+END
+
