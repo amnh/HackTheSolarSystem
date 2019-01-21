@@ -1,0 +1,58 @@
+// The number of slices cannot exceed 9,999 without requiring edits to the code. 
+// This results because of the way the track name is defined below. 
+
+// Track Length Variables- for full track, set the first one to 0 (or 1, depending 
+// on how the image indexing starts) and the second one to the last image's index
+
+firstSlice=0; lastSlice=133
+
+// Path Variables- The first path is the location of the slices and the second path
+// is the location of the outputted data files. This should be the same directory as
+// that which contains this file and the file "BestFit.exe".
+
+pathToTrackSlices="F:\\Tori\\T163d_freslice2\\T163d_freslice2_";
+pathToData="F:\\Tori\\Comet Particle Track Analysis\\Comet Particle Track Analysis\\";
+
+for( i = firstSlice; i <= lastSlice; i++ )
+{
+	current = i;
+	
+	// Selects a slightly different file name based on the index. Must be editted for
+	// slice indexes greater than 9,999. In the current system, slices indexed less than 
+	// 10 have only one number digit, and therefore 3 leading zeros. Slices indexed between
+	// 10 and 99 have two digits, and therefore only 2 leading zeros, etc. If the track in
+	// question has 10,000 or more slices, simply add another else if statement, and up all
+	// of the leading zeros by one (such that indexes under 10 will have 4 leading zeros etc)
+	
+	if(current<10)
+		open(pathToTrackSlices + "000" + i + ".tif");
+	else if(current>=10  && current<100) 
+		open(pathToTrackSlices + "00" + i + ".tif");
+	else if(current>=100 && current<1000)
+		open(pathToTrackSlices + "0" + i + ".tif");
+	else if(current >= 1000 && current < 10000)
+		open(pathToTrackSlices + i + ".tif");
+		
+	// Process used to filter images and output data points
+	run("Smooth");
+	run("Brightness/Contrast...");
+	run("Enhance Contrast", "saturated=0.35");
+	run("Close");
+	
+	// Inverts the image and makes it binary so that there are less factors to
+	// consider in the next step. 
+	run("Invert");
+	//run("Make Binary");
+	
+	// The noise option here can be toggled for maximum efficiency in the track. 
+	// The higher the number, the more data points will be eliminated, as it 
+	// will require the maxima to be more acute. 
+	run("Find Maxima...", "noise=500 output=List light");
+	
+	// Saves the results to a different data file per slice, all in the directory "data_files/"
+	// which should have the same parent directory as this file, and the file "BestFit.exe"
+	saveAs("Results", pathToData + "data_files\\data" + i + ".txt");
+	
+	// Closes each image after the process is run.
+	//close();
+}
