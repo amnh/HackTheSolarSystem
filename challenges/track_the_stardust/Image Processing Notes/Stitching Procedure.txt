@@ -1,0 +1,56 @@
+Stardust Track Stitching Procedure
+Rev. A05
+10/3/08
+M.Greenberg
+
+Explanation:
+At the highest resolution, the Confocal scope cannot image a full Stardust track, thus I have developed technques for making mosaics of multiple 3d stacks, to create 1 continuous 3d stacks of the entire track. This huge file (usually >2.5Gb) can be used for outlining, and subsequently, post processing in IDL.
+
+Scan Preparations:
+Scans which will be stitched should maintain the same paramaters (ie. detector gain, z range, slice thickness etc.) The only paramater which gets changed is the laser spot. This is sometimes called rastering the laser beam. This causes some minute spherical coordinate errors, but can be easilly recongized and accounted for in the stitching process.
+
+Preprocessing:
+The original .lsm files should be either 8bit or 16bit (scaled from 12bit). It is first necessary to save them as .tif stacks, and put these in a seperate folder. Next preprocessing is fairly simple. On each of the tiled images I used the "Subtract Background" tool under the "Process" menu in ImageJ. A rolling ball radius of 25 - 50 is usually appropriate, and the preview checkbox should be used to evaluate the quality of the resulting image. On DSE64a processing should take no more than a few minutes per image stack.
+
+DSE64a Has ample storage, save these as seperate image stacks. (The original .tif's can be deleted after the preprocessing stage)
+
+Since the scan parameters were kept the same, the images should look roughly the same after preprocessing. Sometimes one image gets processed strangely (excessive brightness or darkness, this will be obvious if it happens). Simplly start again and reapply the "subtract Background" function to the original .tif and everything should sort itself out.
+
+Procedure:
+For the stitching procedure I will discuss a hyopthetical situation where there are 4 stacks to make into 1 mosaic.
+1. Make sure all processed images are in the same directory and are named appropriately (I will refer to the entry hole region as 1, and work my way to 4 for the terminal region).
+2. Scans should have been taken with the tracks on the diagonal of the square field of view, so as to maximize track length in each scan. For processing with the IDL code we must align the track in a vertical position, making sure that scanned edge of the aerogel is paralel to the bottom of the image. The entry hole will end up being at the bottom of the composite, and the terminal point will be at the top.
+3. Rotate Image 1 using imageJ Image -> Rotate -> Arbitrarily
+	a. Use the preview function and an appropriate number of gridlines to roughly orient the track vertically by varying the angle and using the "preview" function (note: rotation angles do not need to be whole numbers ie.: 15.663 is appropriate.
+	b. Be sure that the "interpolate" and "enlarge image to fit result" checkboxes are checked.
+	c. Write down the rotation angle!
+	d. Click ok
+	e. Repeat for all images to be used in the mosaic, with the same rotation angle.
+	f. It is not crucial that the track is perfectly aligned it can always be realinged at a later time.
+4. Crop the image using a rectangular selection over the relevant regions of your newly rotated image.
+	a. Use Image -> Crop OR Ctrl+Alt+X to crop.
+5. Save each image seperately. with a defining filename
+	a. (eg. TXXX_1_crop_rot.tif)
+	b. In a perfect world you would not have to do this, but due to RAM and processing power constraints this will help improve the processing time.
+ 
+The next few steps outline how to do the 3d stitching with ImageJ
+6. When stitching you always want to work in pairs. So for a 4 image stitch, we will sticht 1&2 --> 1_2 and 3&4 -> 3_4. Then we will stitch the resulting 2 pairs 1_2&3_4 -> 1_2_3_4
+7. Now that we have a plan we can get to actual stitching.
+8. We start by taking our image pair and finding a similar structure on each. Since the stacks overlap in a small area this should be in the upper part of the image.
+9. Write down the X and Y coordinates for this position, and make sure you are on the same slice number as well.
+10. Increase the size of Image 1 to accomidate adding image 2
+	a. This requires some calculation on how many more pixels are needed to accomodate the addition of another image.
+	b. Image -> Resize Image Canvas
+	c. Input the new width and height and make sure you are resizing the lower number image (eg. 1)
+	d. Position is "Bottom-Right"
+11. Combine the 2 Images
+	a. Process -> Image Calculator
+	b. The operation to use is MAX
+	c. "Create new window" can be used if RAM constraints are an issue
+12. Save and repeat stitching until all are stitched
+13. (Optional) Finescale adjustments to rotation can now be done.
+14. Scans are stitched and are now ready to be outlined.
+	a. See "Outlining Procedure.txt" for correct procedure
+
+Notes:
+1. 12bit images are optimal, but are much more resource intensive.

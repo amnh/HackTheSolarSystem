@@ -1,0 +1,32 @@
+Stardust Track Outlining Procedure
+Rev. A03
+9/17/08
+M.Greenberg
+
+Preprocessing:
+The original .lsm files should be fairly dim, so a lookup table may be necessary to view the data correctly. (3-3-2 RGB usually does the trick for really low gain images, or Rainbow RGB is good for slightly higher gain images) After that, thresholding may be necessary to isolate the intensities necessary for outlining. Finally a pass of "make binary" can be used if thresholding was used to reduce the size of the dataset. After this outlining can begin.
+
+Procedure:
+1. Open .lsm or other file using imageJ
+2. Save as Compatible .tif stack (File > Save As)
+3. Map Shortcuts for ease (Plugins > Shortcuts > Create Shortcut)
+  a. F1 -> Fill
+  b. F5 -> Clear Outside
+  c. F8 -> Delete Slice
+4. Delete any extra slices using new shortcut (F8)
+5. Select "Polygon Selections" tool (Third button on toolbar)
+6. Click to make vertex points and create an outline of the track
+7. CTrl+F (Or F1) to fill the selection when completed
+  a. Click "NO" when prompted to act on all slices!
+8. F5 to clear the outside
+  a. Again click "NO" when prompted to act on all slices!
+9. If you lose the outline by clicking outside Ctrl+Shift+E restores the previous outline!
+10. Save after every 5 or so slices!
+11. Repeat until all slices are done.
+12. After all is done, use the "Make Binary" tool to make the stacks Black outlines on a White background.
+13. These stacks are now ready for IDL processing.
+
+Notes:
+You can select a new polygon each time or to save time, drag to change the vertex points and/or create new vertex points. To add a point, click on an existing point with the shift key down.
+
+Since these are Binary .tif stacks, they compress nicely in .zip or .rar format. The larger image stacks may be too large to be compressed in .zip format.

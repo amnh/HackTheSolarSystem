@@ -1,0 +1,8 @@
+6,,,,,,,,,
+EMP,sem-4128-t5-ps1a-m1_32bt_Xx.tif,sem-4128-t5-ps1a-m1_32bt,sem-4128-t5-ps1a-m1_32bt-mode,512,512,32,15,40,4
+EMP,sem-4128-t5-ps1a-m2_32bt_Xx.tif,sem-4128-t5-ps1a-m2_32bt,sem-4128-t5-ps1a-m2_32bt-mode,512,512,32,15,40,4
+EMP,sem-4128-t5-ps1a-m3_32bt_Xx.tif,sem-4128-t5-ps1a-m3_32bt,sem-4128-t5-ps1a-m3_32bt-mode,512,512,32,15,40,4
+EMP,sem-4128-t5-ps1a-m4_32bt_Xx.tif,sem-4128-t5-ps1a-m4_32bt,sem-4128-t5-ps1a-m4_32bt-mode,512,512,32,15,40,4
+EMP,sem-4128-t5-ps1a-m5_32bt_Xx.tif,sem-4128-t5-ps1a-m5_32bt,sem-4128-t5-ps1a-m5_32bt-mode,512,512,32,15,40,4
+EMP,sem-4128-t5-ps1a-m6_32bt_Xx.tif,sem-4128-t5-ps1a-m6_32bt,sem-4128-t5-ps1a-m6_32bt-mode,512,512,32,15,40,4
+rem  code,Mask name,Input base name,target name,map size X,map size Y,bit depth,dwell time (ms),current (nA),El-setup

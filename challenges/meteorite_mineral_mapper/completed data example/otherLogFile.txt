@@ -1,0 +1,12 @@
+code: 	E:\a\code-mode\modeMap-5mar2018.pro of 5-Mar-2018 4pm
+date: 	Fri Aug 03 12:23:24 2018
+================================
+	norm beam curr.(nA) =	40.000000	
+	norm dwell time.(ms) =	15.000000	
+		norm-nA	norm-ms	crop-X	crop-Y	curr(nA)	dwell(ms)	xx
+2	sem-4128-t5-ps1a-m1_32bt-mode	0	0	512	512	15	40	xx
+3	sem-4128-t5-ps1a-m2_32bt-mode	0	0	483	435	15	40	xx
+4	sem-4128-t5-ps1a-m3_32bt-mode	0	0	421	467	15	40	xx
+5	sem-4128-t5-ps1a-m4_32bt-mode	0	0	330	429	15	40	xx
+6	sem-4128-t5-ps1a-m5_32bt-mode	0	0	442	447	15	40	xx
+7	sem-4128-t5-ps1a-m6_32bt-mode	0	0	495	304	15	40	xx
