@@ -6,7 +6,7 @@
 * List
 * Every
 * Team
-* Members
+* Member's
 * GitHub handle and Full Name
 
 ### Solution Description
