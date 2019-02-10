@@ -4,4 +4,4 @@ Millerite		NiS
 Troilite		FeS
 Pentlandite		FeNiS
 Olivine			(Fe,Mg)2SiO4	note: Fe:Mg ratio can vary from 0:1 to 1:1 t 1:0
-Pyroxene		(Fe,Mg)SiO		note: Fe:Mg ratio can vary from 0:1 to 1:1 t 1:0
+Pyroxene		(Fe,Mg)SiO3		note: Fe:Mg ratio can vary from 0:1 to 1:1 t 1:0
